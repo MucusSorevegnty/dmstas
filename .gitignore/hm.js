@@ -1,6 +1,5 @@
 const Discord = require('discord.js')
 const client = new Discord.Client;
-const specialclient = new Discord.Client;
  
 const setupCMD = "!3781718setreactionrole"
 let initialMessage = `**Cliquez sur les émojis ci-dessous pour obtenir les rôles associés. Si vous souhaitez enlever un de vos rôle, il suffit de retirer votre réaction assciée!**`;
@@ -89,26 +88,4 @@ function generateMessages(){
   });
 
 
-
-
-specialclient.on('ready', () => {
-  console.log('Special Client ready !')
-})
-specialclient.on('message', message => {
-  console.log('Ding')
-  if(message.channel.name == "🤖cleverbot"){
-    console.log('Dong')
-    if(message.content.startsWith('!')){
-      console.log('NONO')
-      return
-    }else if(message.author.id == '611582180811997184')
-    return;
-    else{
-      specialclient.channels.findAll('name', '28711').map(channel => channel.send(message.content))
-    }
-  }
-
-})
-
   client.login(process.env.SPY)
-  specialclient.login(process.env.VERYSECRET)
