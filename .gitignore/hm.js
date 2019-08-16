@@ -11,7 +11,7 @@ app.get("/", (request, response) => {
 });
 app.listen(3000);
 setInterval(() => {
-  http.get(`https://dmstadm.herokuapp.com/`);
+  https.get(`https://dmstadm.herokuapp.com/`);
 }, 280000);
  
 const setupCMD = "!3781718setreactionrole"
@@ -20,7 +20,7 @@ const roles = ["✔", "Notifications", "Foreign-languages"];
 const reactions = ["✅", "🔔", "🌍"];
 
 // A pretty useful method to create a delay without blocking the whole script.
-
+  client.login(process.env.SPY)
 client.on('ready', () => {
   console.log('Ready.')
 });
@@ -106,4 +106,3 @@ function generateMessages(){
     }  
   });
 
-  client.login(process.env.SPY)
