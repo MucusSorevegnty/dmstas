@@ -105,7 +105,4 @@ function generateMessages(){
     }  
   });
 
-
-
-
   client.login(process.env.SPY)
