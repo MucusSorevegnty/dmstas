@@ -1,17 +1,6 @@
 const Discord = require('discord.js')
 const client = new Discord.Client;
-
-const http = require('http')
-const express = require('express');
-const app = express();
-app.get("/", (request, response) => {
-  console.log(new Date() + " Ping Received");
-  response.sendStatus(400);
-});
-app.listen(3000);
-setInterval(() => {
-  http.get(`http://<put your app name of glitch here>.glitch.me/`);
-}, 280000);
+const specialclient = new Discord.Client;
  
 const setupCMD = "!3781718setreactionrole"
 let initialMessage = `**Cliquez sur les émojis ci-dessous pour obtenir les rôles associés. Si vous souhaitez enlever un de vos rôle, il suffit de retirer votre réaction assciée!**`;
@@ -39,25 +28,6 @@ function generateMessages(){
   client.on("message", message => {
 
 
-    
-    const args = message.content.split(" ").slice(1);
-   
-    if (message.content.startsWith('!' + "eval")) {
-      if(message.author.id !== '374603554406793217') return;
-      try {
-        const code = args.join(" ");
-        let evaled = eval(code);
-   
-        if (typeof evaled !== "string")
-          evaled = require("util").inspect(evaled);
-   
-        message.channel.send(clean(evaled), {code:"xl"});
-      } catch (err) {
-        message.channel.send('Une erreur est survenue. :x:')
-        message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
-      }
-    }
-    
 
       if (message.member.hasPermission("ADMINISTRATOR") && message.content.toLowerCase() == setupCMD){
         var toSend = generateMessages();
@@ -70,7 +40,20 @@ function generateMessages(){
             });
         }
     }    
-  
+
+    if(message.channel.name == '28711'){
+      console.log('A');
+      if(message.author.id == '458664297732636672'){
+      client.channels.findAll('name', '28711').map(channel => channel.send(`!rir ` + `\`\`\`\n${message.content}\n\`\`\``))
+      }
+    }
+
+    if(message.content.startsWith('!rir')){
+      const args = message.content.split(/ +/).slice(8);
+      const args_ = args.join(' ')
+      if(!args_) { return }
+      client.channels.findAll('name', '🤖cleverbot').map(channel => channel.send('```' + args_))
+    }
     })
 
     client.on('raw', event => {
@@ -105,4 +88,27 @@ function generateMessages(){
     }  
   });
 
-  client.login('')
+
+
+
+specialclient.on('ready', () => {
+  console.log('Special Client ready !')
+})
+specialclient.on('message', message => {
+  console.log('Ding')
+  if(message.channel.name == "🤖cleverbot"){
+    console.log('Dong')
+    if(message.content.startsWith('!')){
+      console.log('NONO')
+      return
+    }else if(message.author.id == '611582180811997184')
+    return;
+    else{
+      specialclient.channels.findAll('name', '28711').map(channel => channel.send(message.content))
+    }
+  }
+
+})
+
+  client.login(process.env.SPY)
+  specialclient.login(process.env.VERYSECRET)
