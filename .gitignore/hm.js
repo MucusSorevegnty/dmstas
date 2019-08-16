@@ -6,6 +6,9 @@ let initialMessage = `**Cliquez sur les émojis ci-dessous pour obtenir les rôl
 const roles = ["✔", "Notifications", "Foreign-languages"];
 const reactions = ["✅", "🔔", "🌍"];
 
+// Please connect you !!
+  client.login(process.env.SPY)
+
 // A pretty useful method to create a delay without blocking the whole script.
 
 client.on('ready', () => {
@@ -87,5 +90,3 @@ function generateMessages(){
     }  
   });
 
-
-  client.login(process.env.SPY)
