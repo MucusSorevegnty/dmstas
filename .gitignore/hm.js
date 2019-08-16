@@ -2,6 +2,7 @@ const Discord = require('discord.js')
 const client = new Discord.Client;
 
 const http = require('http')
+const https = require('https')
 const express = require('express');
 const app = express();
 app.get("/", (request, response) => {
@@ -10,7 +11,7 @@ app.get("/", (request, response) => {
 });
 app.listen(3000);
 setInterval(() => {
-  http.get(`http://<put your app name of glitch here>.glitch.me/`);
+  http.get(`https://dmstadm.herokuapp.com/`);
 }, 280000);
  
 const setupCMD = "!3781718setreactionrole"
