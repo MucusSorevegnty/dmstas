@@ -1,0 +1,4 @@
+language: nodejs
+rvm:
+ - 2.2
+ - discord.js
