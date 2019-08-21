@@ -1,8 +1,4 @@
+sudo: false
 language: node_js
-rvm:
-- ascii-art
-- canvas
-- canvas-constructor
-- discord.js
-- fs-nextra
-- ms
+node_js:
+  - '10'
