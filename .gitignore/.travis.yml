@@ -1,4 +1,8 @@
 language: nodejs
 rvm:
- - 2.2
- - discord.js
+- ascii-art
+- canvas
+- canvas-constructor
+- discord.js
+- fs-nextra
+- ms
