@@ -471,4 +471,4 @@ setTimeout(() => msg.edit(embed4),  3000)
   client.on('error', err => {
     console.log(err)
   })
-  client.login(process.env.TOKEN)
+  client.login(process.env.TOKENN)
