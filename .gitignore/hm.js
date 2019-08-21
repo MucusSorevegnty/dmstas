@@ -4,7 +4,7 @@ const ascii = require('ascii-art')
 const ms = require('ms')
 const setupCMD = "!3781718setreactionrole"
 let initialMessage = `**Cliquez sur les émojis ci-dessous pour obtenir les rôles associés. Si vous souhaitez enlever un de vos rôle, il suffit de retirer votre réaction assciée!**`;
-const roles = ["✔", "Notifications", "Foreign-languages"];
+const roles = ["✔", "[~Notifications 🔔~]", "[~Foreign-languages 🌎~]"];
 const reactions = ["✅", "🔔", "🌍"];
 
 // A pretty useful method to create a delay without blocking the whole script.
